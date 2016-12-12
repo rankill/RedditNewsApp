@@ -1,7 +1,9 @@
 <header>
-  {{title}}
-  <!-- Images (and assets) are parsed and loaded from within the public directory -->
-  <img class="main_icon" src="/img/reddit-icon-background.png" >
+  <div class="header u-container">
+    {{title}}
+    <!-- Images (and assets) are parsed and loaded from within the public directory -->
+    <img class="header__logo" src="/img/reddit-icon-background.png" >
+  </div>
 </header>
 <main>
   <router-outlet></router-outlet>

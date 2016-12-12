@@ -12,5 +12,5 @@ import '../style/app.scss';
 
 
 export class AppComponent{
-  title = 'Reddit Latest Posts - Angular 2 version';
+  title = 'Reddit News';
 }

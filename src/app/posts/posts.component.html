@@ -1,14 +1,41 @@
-<div class='container'>
-  <h2>{{ title }}</h2>
+<div class='u-container posts'>
+  <h2 class="u-text_center posts__title">{{ title }}</h2>
 
-  <code  *ngIf="posts">
-    {{ infoQuantity }}
+  <code class="u-text_right posts__badge"
+        *ngIf="posts">
+    Listed {{ posts.length }} posts
   </code>
-  <ul *ngIf="posts" class="posts">
-    <li *ngFor="let post of posts">
-      <!-- POSTS INFO -->
-      <a [routerLink]="['/detail', post.id]">{{ post.title }}</a>
+
+  <ul *ngIf="posts" class="posts__list">
+    <li class="posts__list__item"
+        *ngFor="let post of posts"
+        [ngClass] = {show_details:post.showDetailBtn}
+        (focusout)= 'post.showDetailBtn = false'
+        (click)= 'post.showDetailBtn = true'
+        (mouseenter) = 'post.showDetailBtn = true'
+        (mouseleave) = 'post.showDetailBtn = false'>
+
+      <div class="posts__list__item__info">
+        <p class="posts__list__item__info__title"> {{ post.title }}</p>
+        <p class="posts__list__item__info__author">
+          Created by:
+          <span class="posts__list__item__info__author__username">
+          <a target="_blank"
+             [href]="'https://www.reddit.com/user/'+post.author">
+            {{ post.author }}
+          </a>
+        </span>
+        </p>
+      </div>
+
+      <div class="posts__list__item__detail">
+        <a class="posts__list__item__detail_link"
+           [routerLink]="['/detail', post.id]">
+          Details
+        </a>
+      </div>
     </li>
+
   </ul>
 
   <code *ngIf="errorPosts">

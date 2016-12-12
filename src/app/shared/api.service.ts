@@ -38,15 +38,20 @@ export class ApiService {
       .catch(this.handleError);
   }
 
-  getPostDetails(_id: any): Promise {
+  // getPostDetails(_id: any): Promise {
+  //
+  //   console.warn('Este es el parametro', _id);
+  //
+  //   return new Promise(resolve =>
+  //     this.getLatestPosts()
+  //       .then(_posts => {
+  //         resolve(_posts.find(_post => _post.id == _id))
+  //       })
+  //   );
+  // }
 
-    console.warn('Este es el parametro', _id);
-
-    return new Promise(resolve =>
-      this.getLatestPosts()
-        .then(_posts => {
-          resolve(_posts.find(_post => _post.id == _id))
-        })
-    );
+  getPostDetails(_id: number | string) : Promise{
+    //noinspection TypeScriptUnresolvedVariable
+    return  this.getLatestPosts().then(_posts => _posts.find(_post => _post.id === _id))
   }
 }

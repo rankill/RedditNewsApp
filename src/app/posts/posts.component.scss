@@ -1,0 +1,108 @@
+@import '../../style/variables';
+
+.posts {
+  padding: 10px;
+  &__title{
+
+  }
+
+  &__badge {
+    display: flex;
+    justify-content: flex-end;
+
+    font-size: 12px;
+
+    color: $main_font_color;
+
+  }
+
+  &__list {
+    list-style-type: none;
+    width: 100%;
+    color: $main_font_color;
+
+    &:hover {
+      &__item{
+        background: rgba($reddit-color, 0.1);
+        color: rgba($main_font_color, 1);
+      }
+    }
+
+    &__item{
+      padding: 2px;
+      margin: 20px 0;
+      border: 1px dashed rgba($reddit-color, 0.19);
+      position: relative;
+      overflow: hidden;
+      touch-action: auto;
+
+      &__info {
+        transition: margin 300ms ease;
+        -webkit-transition: margin 300ms ease;
+        -moz-transition: margin 300ms ease;
+        -o-transition: margin 300ms ease;
+
+        padding: 10px;
+        border-radius: 0 10px 10px 0;
+        &__title {
+          float: left;
+          margin: 0 15px 0 0;
+          color: $main_font_color;
+
+        }
+
+        &__author {
+          font: 200 12px/1.5 Georgia, Times New Roman, serif;
+          text-align: right;
+
+          &__username {
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+
+      &__detail{
+
+        transition: left 500ms ease;
+        -webkit-transition: left 500ms ease;
+        -moz-transition: left 500ms ease;
+        -o-transition: left 500ms ease;
+
+        background-color: $reddit-color;
+
+        height: 100%;
+        width: 100px;
+
+        position: absolute;
+        top: 0;
+        left: -100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 2px 0 6px -2px rgba(0, 0, 0, 0.5);
+
+        a {
+          color: white;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+
+
+      // Interactions
+      &.show_details {
+        .posts__list__item__info{
+          margin-left: 100px;
+        }
+
+        .posts__list__item__detail{
+          left: 0;
+        }
+      }
+    }
+  }
+}

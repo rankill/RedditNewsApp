@@ -1,8 +1,58 @@
 // styles in src/style directory are applied to the whole page
-body {
-    background: white;
-    color: orangered;
+@import "variables";
+
+* {
+  margin: 0;
+  padding: 0;
 }
+
+// Base
+
+/* WebKit/Blink Browsers */
+::selection {
+  background: $reddit-color;
+  color: white;
+}
+
+/* Gecko Browsers */
+::-moz-selection {
+  background: $reddit-color;
+  color: white;
+}
+
+html {
+
+  font-family: Helvetica, Verdana, sans-serif;
+
+  h3 {
+    font-weight: bold;
+    font-size: 20px/1.5;
+  }
+}
+
+body {
+  background: white;
+  color: orangered;
+}
+
 a {
-    color: #03A9F4;
+  color: $reddit-color;
+  text-decoration: none;
+}
+
+// Helpers
+.u-container {
+  max-width: 800px;
+  margin: auto;
+}
+
+/**
+*text-align dynamic
+*/
+$aligns: left center right;
+
+@each $align in $aligns {
+  .u-text_#{$align} {
+    text-align: $align;
+  }
 }
