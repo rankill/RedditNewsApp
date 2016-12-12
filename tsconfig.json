@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "module": "commonjs",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "lib": [
+      "es6",
+      "dom",
+      "es2015.promise"
+    ],
+    "noImplicitAny": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "sourceMap": true,
+    "noEmitHelpers": true
+  },
+  "compileOnSave": false,
+  "buildOnSave": false,
+  "awesomeTypescriptLoaderOptions": {
+    "forkChecker": true,
+    "useWebpackText": true
+  }
+}

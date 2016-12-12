@@ -1,0 +1,17 @@
+<div class='container'>
+  <h2>{{ title }}</h2>
+
+  <code  *ngIf="posts">
+    {{ infoQuantity }}
+  </code>
+  <ul *ngIf="posts" class="posts">
+    <li *ngFor="let post of posts">
+      <!-- POSTS INFO -->
+      <a [routerLink]="['/detail', post.id]">{{ post.title }}</a>
+    </li>
+  </ul>
+
+  <code *ngIf="errorPosts">
+    Error getting latest reddit posts, try it again later please :)
+  </code>
+</div>
