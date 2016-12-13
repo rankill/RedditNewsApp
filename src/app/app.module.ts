@@ -6,6 +6,8 @@ import { HttpModule }           from '@angular/http';
 // Routing
 import { AppRoutingModule }     from './app.routing';
 
+//External modules
+import { InfiniteScrollModule } from 'angular2-infinite-scroll';
 
 // Local components
 import { AppComponent }         from './app.component';
@@ -27,7 +29,8 @@ import { ApiService }        from './shared/api.service';
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    InfiniteScrollModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]

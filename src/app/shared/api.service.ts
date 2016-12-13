@@ -9,10 +9,11 @@ import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class ApiService {
-  latestArrays: Array[];
-  private _postsRedditUrl: string = 'https://www.reddit.com/r/news/.json';
-  private _postsRedditSearchUrl: string = 'https://www.reddit.com/search.json?q=';
+  loadedPosts : Array = [];
 
+  private _after: string = '';
+  private _baseUrl: string = 'https://www.reddit.com';
+  private _latestPostsReddit: string = `${this._baseUrl}/r/news/.json?after=`;
 
   private handleError(_error: any): Promise<any> {
     console.error('An error occurred', _error); // for demo purposes only
@@ -21,37 +22,31 @@ export class ApiService {
 
   constructor(private _http: Http) { }
 
-  getLatestPosts(_quantity:any = null): Promise<Array[]> {
+  getLatestPosts(): Promise<Array[]> {
 
-    let tempUrl = this._postsRedditUrl;
+    console.warn('thisafet', this._after);
 
-    if (_quantity) {
-      console.warn('Pase cantidad');
-      tempUrl = tempUrl + `?limit=${_quantity}`;
-    }
+    let tempUrl = this._latestPostsReddit + this._after;
 
+    console.log('this', tempUrl);
 
     //noinspection TypeScriptUnresolvedFunction
     return this._http.get(tempUrl)
       .toPromise()
-      .then(_response => _response.json().data.children.map((_children: any) => _children.data as Array[]))
+      .then(_response => {
+        this._after = _response.json().data.after;
+        this.loadedPosts = this.loadedPosts
+          .concat(_response.json().data.children.map((_children: any) => _children.data as Array[]));
+
+        return this.loadedPosts;
+      })
       .catch(this.handleError);
   }
 
-  // getPostDetails(_id: any): Promise {
-  //
-  //   console.warn('Este es el parametro', _id);
-  //
-  //   return new Promise(resolve =>
-  //     this.getLatestPosts()
-  //       .then(_posts => {
-  //         resolve(_posts.find(_post => _post.id == _id))
-  //       })
-  //   );
-  // }
-
   getPostDetails(_id: number | string) : Promise{
     //noinspection TypeScriptUnresolvedVariable
-    return  this.getLatestPosts().then(_posts => _posts.find(_post => _post.id === _id))
+
+    console.warn('this.loade', this.loadedPosts);
+    return Promise.resolve(this.loadedPosts.find(_post => _post.id === _id));
   }
 }

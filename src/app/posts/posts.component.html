@@ -1,5 +1,10 @@
-<div class='u-container posts'>
-  <h2 class="u-text_center posts__title">{{ title }}</h2>
+<div class='u-container posts'
+     infinite-scroll
+     [infiniteScrollDisabled]="loadingMore"
+     [infiniteScrollDistance]="0"
+     (scrolled)="onScroll()"
+     [scrollWindow]="true">
+  <h2 class="u-text_center posts__title icon-loop"> {{ title }}</h2>
 
   <code class="u-text_right posts__badge"
         *ngIf="posts">
@@ -37,6 +42,12 @@
     </li>
 
   </ul>
+
+
+  <span *ngIf="loadingMore" class="u-center_block">
+    Loading more posts
+    <span class="icon-spinner spinner spinner--steps2"></span>
+  </span>
 
   <code *ngIf="errorPosts">
     Error getting latest reddit posts, try it again later please :)

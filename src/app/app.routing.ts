@@ -8,8 +8,8 @@ import { PostDetailComponent }   from './postsDetails/post-details.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/last_posts', pathMatch: 'full' },
-  { path: 'last_posts',  component: PostsComponent },
-  { path: 'detail/:id',  component: PostDetailComponent }
+  { path: 'last_posts',  component: PostsComponent, data:{subTitle:'Home'} },
+  { path: 'detail/:id',  component: PostDetailComponent, data:{subTitle:'Post details'} }
 ];
 
 @NgModule({

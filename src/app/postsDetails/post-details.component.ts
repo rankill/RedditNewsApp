@@ -19,7 +19,7 @@ import 'rxjs/add/operator/switchMap';
 })
 
 export class PostDetailComponent implements OnInit {
-  title: string = '';
+  title: string = 'Details';
   currentPost: Array;
 
   constructor(

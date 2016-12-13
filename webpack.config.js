@@ -50,7 +50,7 @@ module.exports = function makeWebpackConfig() {
   config.entry = isTest ? {} : {
     'polyfills': './src/polyfills.ts',
     'vendor': './src/vendor.ts',
-    'app': './src/main.ts' // our angular app
+    'app': './src/main.ts', // our angular app
   };
 
   /**
@@ -128,6 +128,20 @@ module.exports = function makeWebpackConfig() {
       // support for .html as raw text
       // todo: change the loader to something that adds a hash to images
       {test: /\.html$/, loader: 'raw-loader',  exclude: root('src', 'public')}
+    ],
+    loaders: [
+      // the url-loader uses DataUrls.
+      // the file-loader emits files.
+      {
+        test: /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        // Limiting the size of the woff fonts breaks font-awesome ONLY for the extract text plugin
+        // loader: "url?limit=10000"
+        loader: "url"
+      },
+      {
+        test: /\.(ttf|eot|svg)(\?[\s\S]+)?$/,
+        loader: 'file'
+      }
     ]
   };
 

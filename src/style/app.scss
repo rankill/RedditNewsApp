@@ -1,9 +1,68 @@
 // styles in src/style directory are applied to the whole page
 @import "variables";
 
-* {
-  margin: 0;
-  padding: 0;
+@import "../style/variables";
+
+// Icomoon config
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../public/fonts/icomoon.eot?b2865t');
+  src:  url('../public/fonts/icomoon.eot?b2865t#iefix') format('embedded-opentype'),
+  url('../public/fonts/icomoon.ttf?b2865t') format('truetype'),
+  url('../public/fonts/icomoon.woff?b2865t') format('woff'),
+  url('../public/fonts/icomoon.svg?b2865t#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-spinner:before {
+  content: "\e97b";
+}
+.icon-loop:before {
+  content: "\ea2e";
+}
+
+.spinner{
+  display: inline-block;
+  height: 1em;
+  line-height: 1;
+  margin: .5em;
+  animation: anim-rotate 2s infinite linear;
+  text-shadow: 0 0 .25em rgba(255,255,255, .3);
+  width: 1em;
+  height: 1em;
+
+  &--steps {
+    animation: anim-rotate 1s infinite steps(8);
+  }
+  &--steps2 {
+    animation: anim-rotate 1s infinite steps(12);
+  }
+}
+
+
+@keyframes anim-rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 // Base
@@ -21,8 +80,9 @@
 }
 
 html {
-
   font-family: Helvetica, Verdana, sans-serif;
+  overflow-x: hidden;
+  overflow-y: auto;
 
   h3 {
     font-weight: bold;
@@ -46,6 +106,14 @@ a {
   margin: auto;
 }
 
+.u-font-main-color {
+  color: $reddit-color;
+}
+
+.u-center_block {
+  margin: auto;
+}
+
 /**
 *text-align dynamic
 */
@@ -54,5 +122,64 @@ $aligns: left center right;
 @each $align in $aligns {
   .u-text_#{$align} {
     text-align: $align;
+  }
+}
+
+
+// button element
+.c-btn{
+  background-color: #d3d3d3;
+  border: none;
+
+  border-radius: .4em;
+  box-sizing: border-box;
+
+  color: #fff;
+  cursor: pointer;
+  font-size: .85em;
+  font-weight: 700;
+  padding: .6em .8em .8em;
+  text-decoration: none;
+
+  user-select: none;
+  transition: .2s;
+
+  vertical-align: middle;
+
+  box-shadow: inset 0 -0.2em rgba(0, 0, 0, 0.3);
+
+  white-space: nowrap;
+
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+
+
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  outline: none;
+
+  &:active{
+    transform: scale(.9);
+  }
+
+  &--brand {
+    background-color: $reddit-color;
+  }
+
+  &--brand_secondary {
+    background-color: white;
+    border: 1px solid #2cb1e9;
+    color: #2cb1e9;
+  }
+
+  &--medium, &--md{
+    font-size: 1.1em;
+  }
+
+  &--big, &--bg {
+    font-size: 1.3em;
   }
 }

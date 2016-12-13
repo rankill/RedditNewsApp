@@ -1,0 +1,47 @@
+@import '../../style/variables';
+
+.post_details {
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+
+  &__title {
+    margin-bottom: 15px;
+  }
+
+  &__elements {
+    margin-bottom: 30px;
+    list-style-type: none;
+    width: 100%;
+    color: $main_font_color;
+
+    &__list {
+      padding: 0 30px;
+
+      &__item{
+        padding: 2px;
+        margin: 20px 0;
+        position: relative;
+        overflow: hidden;
+        touch-action: auto;
+
+        a {
+          color: $main_font_color;
+          &:hover {
+            color: $reddit-color;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+
+  hr{
+    border-color: $reddit-color ;
+    width: 100%;
+  }
+
+  button {
+    margin: auto;
+  }
+}

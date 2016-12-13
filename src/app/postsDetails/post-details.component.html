@@ -1,36 +1,50 @@
-<div *ngIf="currentPost" class='container'>
+<div *ngIf="currentPost"
+     class='u-container post_details'>
+  <h2 class="u-text_center post_details__title">
+    {{ title }}
+  </h2>
 
-  <h2>Post details</h2>
+  <hr>
 
-  <label><strong>Title:</strong> {{ currentPost.title }}</label>
+  <div class="post_details__elements">
+    <p class="u-text_center">{{ currentPost.title }}</p>
+
+    <ul class="post_details__elements__list">
+      <li class="post_details__elements__list__item">
+        <strong class="u-font-main-color">id:</strong>
+        {{ currentPost.id }}
+      </li>
+      <li class="post_details__elements__list__item">
+        <strong class="u-font-main-color">Author:</strong>
+        {{ currentPost.author }}
+      </li>
+      <li class="post_details__elements__list__item">
+        <strong class="u-font-main-color">
+          Reddit post:
+        </strong>
+        <a target="_blank"
+           [href]="'https://www.reddit.com' + currentPost.permalink">https://www.reddit.com{{ currentPost.permalink }}
+        </a>
+      <li class="post_details__elements__list__item">
+        <strong class="u-font-main-color">
+          Original post:
+        </strong>
+        <a target="_blank"
+           [href]="currentPost.url">{{ currentPost.url }}
+        </a>
+      </li>
+      <li class="post_details__elements__list__item">
+        <strong class="u-font-main-color">Created:</strong>
+        <!--
+          As AngularJS doesn't convert Unix timestamp to Date, but a number with milliseconds, which is 1000 times
+          larger, so first it is necessary multiply the created date by 1000 to get the correct current Date
+        -->
+        {{ currentPost.created * 1000 | date:'medium' }}
+      </li>
+    </ul>
+  </div>
 
 
-  <ul class="post_details">
-    <li>
-      <strong>id:</strong> {{ currentPost.id }}
-    </li>
-    <li>
-      <strong>Author:</strong> {{ currentPost.author }}
-    </li>
-    <li>
-      <strong>Url (Reddit):</strong>
-      <a target="_blank"
-         [href]="'https://www.reddit.com' + currentPost.permalink">https://www.reddit.com{{ currentPost.permalink }}
-      </a>
-    <li>
-      <strong>Url (Original):</strong>
-      <a target="_blank"
-         [href]="currentPost.url">{{ currentPost.url }}
-      </a>
-    </li>
-    <li>
-      <strong>Created:</strong>
-      <!--
-        As AngularJS doesn't convert Unix timestamp to Date, but a number with milliseconds, which is 1000 times
-        larger, so first it is necessary multiply the created date by 1000 to get the correct current Date
-      -->
-      {{ currentPost.created * 1000 | date:'medium' }}
-    </li>
-  </ul>
-  <button (click)="goBack()">Back</button>
+  <button class="c-btn c-btn--brand c-btn--md" (click)="goBack()">Back</button>
 </div>
+

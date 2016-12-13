@@ -18,8 +18,7 @@ export class PostsComponent implements OnInit {
   posts: Array[];
   showDetailsBtn : boolean = false;
   errorPosts : boolean = false;
-
-
+  loadingMore : boolean = false;
 
   constructor( private api: ApiService ) { }
 
@@ -34,22 +33,19 @@ export class PostsComponent implements OnInit {
       }, error => this.errorPosts = true);
   }
 
-  toggleDetailBtn() : void{
-    this.showDetailsBtn = !this.showDetailsBtn
+  onScroll(): void  {
+    console.log('scrolled!!')
+    this.loadingMore = true;
+
+    //noinspection TypeScriptUnresolvedFunction
+    setTimeout(() => {
+      this.api.getLatestPosts()
+        .then(_posts => {
+          console.warn('Pidiendo mas pai', _posts);
+          this.loadingMore = false;
+          this.posts = this.posts.concat(_posts);
+        }, error => this.errorPosts = true);
+    }, 1000);
+
   }
-
-  swipe(_currentPost: any, action = 'swiperight') {
-    // swipe right, close details button
-    if (action === 'swipeleft') {
-      _currentPost.showDetailBtn = false
-      alert('swipe left')
-    }
-
-    // swipe right, open details button
-    if (action === 'swiperight') {
-      _currentPost.showDetailBtn = true
-      alert('swipe right')
-    }
-  }
-
 }
