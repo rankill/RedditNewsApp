@@ -3,9 +3,8 @@ import { Component, OnInit } from '@angular/core';
 // Services
 import { ApiService  } from './../shared/api.service';
 
-// Classes
-//import { Post } from './../../classes/post';
-
+// Globals
+import { Globals  } from './../app.globals';
 
 @Component({
   selector: 'app-reddit-posts',
@@ -14,38 +13,62 @@ import { ApiService  } from './../shared/api.service';
 })
 
 export class PostsComponent implements OnInit {
-  title = `Home`;
-  posts: Array[];
-  showDetailsBtn : boolean = false;
-  errorPosts : boolean = false;
-  loadingMore : boolean = false;
+  title: string= `Home`;
+  posts: Array[] = [];
 
-  constructor( private api: ApiService ) { }
+  // Control vars
+  loading: boolean = false;
+  loadingMsg: string = 'Loading posts';
+  errorPosts: boolean = false;
+  isOpenBox: boolean = false;
+
+  constructor( private api: ApiService, private globals: Globals ) { }
 
   ngOnInit(): void {
     console.warn('Inicio');
+    this.getPostsList();
+  }
 
-    //noinspection TypeScriptUnresolvedFunction
-    this.api.getLatestPosts()
+
+  getPostsList(_refresh:boolean = false) : void {
+    console.debug('Get posts');
+
+    this.loading = true;
+
+    this.api.getLatestPosts(_refresh)
       .then(_posts => {
-        console.warn('Pedido pai', _posts);
+        console.warn('Posts', _posts);
+        this.loading = false;
         this.posts = _posts;
       }, error => this.errorPosts = true);
   }
 
-  onScroll(): void  {
+  onScrollBottom(): void  {
     console.log('scrolled!!')
-    this.loadingMore = true;
+    this.loadingMsg = 'Loading more posts';
+    this.getPostsList();
+  }
 
-    //noinspection TypeScriptUnresolvedFunction
-    setTimeout(() => {
-      this.api.getLatestPosts()
-        .then(_posts => {
-          console.warn('Pidiendo mas pai', _posts);
-          this.loadingMore = false;
-          this.posts = this.posts.concat(_posts);
-        }, error => this.errorPosts = true);
-    }, 1000);
 
+  reloadPosts(): void {
+    console.warn('A recargar');
+    this.loadingMsg = 'Refreshing';
+    this.posts = [];
+    this.getPostsList(true);
+  }
+
+
+  openDetailsBox(_post = null, _state = false):void {
+    if(!_post) return;
+
+    console.warn('Debo abrir el box de details?', _post, _state );
+
+     //noinspection TypeScriptUnresolvedVariable
+    this.posts.map(_currentPost => _currentPost.showDetailBtn = false);
+
+
+    if (_state){
+      _post.showDetailBtn = true;
+    }
   }
 }

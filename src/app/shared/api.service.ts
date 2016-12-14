@@ -22,13 +22,15 @@ export class ApiService {
 
   constructor(private _http: Http) { }
 
-  getLatestPosts(): Promise<Array[]> {
+  getLatestPosts(_shouldRefresh: boolean = false): Promise<Array[]> {
 
-    console.warn('thisafet', this._after);
+    if(_shouldRefresh) {
+      console.debug("Tengo q recargar");
+      this._after = '';
+      this.loadedPosts = [];
+    }
 
     let tempUrl = this._latestPostsReddit + this._after;
-
-    console.log('this', tempUrl);
 
     //noinspection TypeScriptUnresolvedFunction
     return this._http.get(tempUrl)

@@ -1,6 +1,9 @@
 // Angular core
 import { Component } from '@angular/core';
 
+// Globals
+import { Globals  } from './app.globals';
+
 import '../style/app.scss';
 
 
@@ -12,5 +15,8 @@ import '../style/app.scss';
 
 
 export class AppComponent{
+
+  constructor( private globals: Globals ){}
+
   title = 'Reddit News';
 }

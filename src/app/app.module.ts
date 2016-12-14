@@ -14,16 +14,23 @@ import { AppComponent }         from './app.component';
 import { PostsComponent }       from './posts/posts.component';
 import { PostDetailComponent }  from './postsDetails/post-details.component';
 
+// Globals
+import { Globals }  from './app.globals';
 
 // Services
-import { ApiService }        from './shared/api.service';
+import { ApiService }           from './shared/api.service';
+
+//Directives
+import { ScrollTopDirective }   from './shared/scroll-top.directive';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     PostsComponent,
-    PostDetailComponent
+    PostDetailComponent,
+    ScrollTopDirective
   ],
   imports: [
     BrowserModule,
@@ -32,7 +39,7 @@ import { ApiService }        from './shared/api.service';
     AppRoutingModule,
     InfiniteScrollModule
   ],
-  providers: [ApiService],
+  providers: [ApiService, Globals],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -6,8 +6,8 @@ import { Location }                 from '@angular/common';
 // Services
 import { ApiService } from './../shared/api.service';
 
-// Classes
-//import { Post } from './../../classes/post';
+// Globals
+import { Globals  } from './../app.globals';
 
 // Switch map -> To make the route of the view
 import 'rxjs/add/operator/switchMap';
@@ -25,7 +25,8 @@ export class PostDetailComponent implements OnInit {
   constructor(
     private api: ApiService,
     private route: ActivatedRoute,
-    private location: Location
+    private location: Location,
+    private globals: Globals
   ) {}
 
   ngOnInit(): void {

@@ -39,6 +39,15 @@ main {
   font-family: Arial, Helvetica, sans-serif;
   margin-top: 60px;
   display: block;
+
+  #scroll_top_btn {
+    position: fixed;
+    bottom: 10px;
+    right: 15px;
+    opacity: .9;
+    width: 3em;
+    height: 3em;
+  }
 }
 
 footer {

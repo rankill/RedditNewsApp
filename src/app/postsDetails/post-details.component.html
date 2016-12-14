@@ -6,33 +6,56 @@
 
   <hr>
 
-  <div class="post_details__elements">
-    <p class="u-text_center">{{ currentPost.title }}</p>
+  <section class="post_details__elements">
+    <div class="post_details__elements__title">
+      <p class="u-text_center">{{ currentPost.title }}</p>
 
+      <div class="u-center_block post_details__elements__title__meta">
+        <small class="post_details__elements__title__meta__item">
+          <svg class="u-font-main-color icon icon-thumb_up">
+            <use [attr.xlink:href]="globals.BASE_SVG_URL+'#icon-thumb_up'"></use>
+          </svg>
+          {{ currentPost.ups }}
+        </small>
+
+        <small class="post_details__elements__title__meta__item">
+          <svg class="u-font-main-color icon icon-thumb_down">
+            <use [attr.xlink:href]="globals.BASE_SVG_URL+'#icon-thumb_down'"></use>
+          </svg>
+          {{ currentPost.downs }}
+        </small>
+
+        <small class="post_details__elements__title__meta__item">
+          <svg class="u-font-main-color icon icon-bubbles4">
+            <use [attr.xlink:href]="globals.BASE_SVG_URL+'#icon-bubbles4'"></use>
+          </svg>
+          {{ currentPost.num_comments }}
+        </small>
+
+        <small class="post_details__elements__title__meta__item">
+          <svg class="u-font-main-color icon icon-award">
+            <use [attr.xlink:href]="globals.BASE_SVG_URL+'#icon-award'"></use>
+          </svg>
+          {{ currentPost.score }}
+        </small>
+      </div>
+    </div>
     <ul class="post_details__elements__list">
+      <!-- ID -->
       <li class="post_details__elements__list__item">
         <strong class="u-font-main-color">id:</strong>
         {{ currentPost.id }}
       </li>
+
+
+      <!-- AUTHOR -->
       <li class="post_details__elements__list__item">
         <strong class="u-font-main-color">Author:</strong>
         {{ currentPost.author }}
       </li>
-      <li class="post_details__elements__list__item">
-        <strong class="u-font-main-color">
-          Reddit post:
-        </strong>
-        <a target="_blank"
-           [href]="'https://www.reddit.com' + currentPost.permalink">https://www.reddit.com{{ currentPost.permalink }}
-        </a>
-      <li class="post_details__elements__list__item">
-        <strong class="u-font-main-color">
-          Original post:
-        </strong>
-        <a target="_blank"
-           [href]="currentPost.url">{{ currentPost.url }}
-        </a>
-      </li>
+
+
+      <!-- DATE CREATED  -->
       <li class="post_details__elements__list__item">
         <strong class="u-font-main-color">Created:</strong>
         <!--
@@ -41,8 +64,29 @@
         -->
         {{ currentPost.created * 1000 | date:'medium' }}
       </li>
+
+
+      <!-- REDDIT URL -->
+      <li class="post_details__elements__list__item">
+        <strong class="u-font-main-color">
+          Reddit post:
+        </strong>
+        <a target="_blank"
+           [href]="'https://www.reddit.com' + currentPost.permalink">https://www.reddit.com{{ currentPost.permalink }}
+        </a>
+      </li>
+
+      <!-- ORIGINAL URL -->
+      <li class="post_details__elements__list__item">
+        <strong class="u-font-main-color">
+          Original post:
+        </strong>
+        <a target="_blank"
+           [href]="currentPost.url">{{ currentPost.url }}
+        </a>
+      </li>
     </ul>
-  </div>
+  </section>
 
 
   <button class="c-btn c-btn--brand c-btn--md" (click)="goBack()">Back</button>

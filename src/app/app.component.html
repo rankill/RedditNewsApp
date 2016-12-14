@@ -11,6 +11,10 @@
 </header>
 <main>
   <router-outlet></router-outlet>
+
+  <svg  class="c-btn c-btn--brand opacity_transition icon icon-circle-up" id="scroll_top_btn" [scrollTop]="130">
+    <use [attr.xlink:href]="globals.BASE_SVG_URL+'#icon-circle-up'"></use>
+  </svg>
 </main>
 <footer>
 </footer>
