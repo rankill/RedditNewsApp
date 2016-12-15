@@ -41,6 +41,6 @@ export class PostDetailComponent implements OnInit {
     setTimeout(() => {
       this.currentPost = null;
       this.onRemoveSelected.emit();
-    }, 1000); // Delay of 1000ms to be conscious with the time of the hideDeatils animation
+    }, 800); // Delay of 1000ms to be conscious with the time of the hideDeatils animation
   }
 }

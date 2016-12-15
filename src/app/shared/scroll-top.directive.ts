@@ -5,7 +5,7 @@ import animateScrollTo from 'animated-scroll-to';
 
 
 @Directive({
-  selector: '[myScrollTop]'
+  selector: '[scrollTop]'
 })
 
 

@@ -28,6 +28,7 @@
   <ul *ngIf="posts" class="posts__list">
     <li class="posts__list__item"
         *ngFor="let post of posts;trackBy:post?.id"
+        [attr.id]="'post_' + post.id"
         [ngClass] = {show_details:post.showDetailBtn}
 
         (click)= 'openDetailsBox(post, true)'
@@ -61,7 +62,7 @@
     </svg>
   </span>
 
-  <code *ngIf="errorPosts">
+  <code *ngIf="errorPosts && !loading">
     Error getting latest reddit posts, try it again later please :)
   </code>
 </div>

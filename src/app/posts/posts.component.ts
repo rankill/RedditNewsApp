@@ -9,6 +9,9 @@ import { ApiService  } from './../shared/api.service';
 // Globals
 import { Globals  } from './../app.globals';
 
+// External
+import animateScrollTo from 'animated-scroll-to';
+
 @Component({
   selector: 'my-reddit-posts',
   templateUrl: './posts.component.html',
@@ -43,7 +46,10 @@ export class PostsComponent implements OnInit {
       .then(_posts => {
         this.loading = false;
         this.posts = _posts;
-      }, error => this.errorPosts = true);
+      }, error => {
+        this.errorPosts = true;
+        this.loading = false;
+      });
   }
 
   /**
@@ -97,12 +103,13 @@ export class PostsComponent implements OnInit {
     }
   }
 
-
   /**
    * Function that clean the current selected post, it is executed from the post details component by output decorator
    * @param $event
    */
   cleanPostSelected($event) {
+    console.warn('Clean', 'post_'+this.selectedPost.id, document.getElementById('post_'+this.selectedPost.id));
+    document.getElementById('post_'+this.selectedPost.id).scrollIntoView();
     this.selectedPost = null;
   }
 
