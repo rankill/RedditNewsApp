@@ -1,3 +1,4 @@
+// Angular core
 import { BrowserModule }        from '@angular/platform-browser';
 import { NgModule }             from '@angular/core';
 import { FormsModule }          from '@angular/forms';
@@ -6,7 +7,7 @@ import { HttpModule }           from '@angular/http';
 // Routing
 import { AppRoutingModule }     from './app.routing';
 
-//External modules
+// External modules
 import { InfiniteScrollModule } from 'angular2-infinite-scroll';
 
 // Local components
@@ -20,7 +21,7 @@ import { Globals }  from './app.globals';
 // Services
 import { ApiService }           from './shared/api.service';
 
-//Directives
+// Directives
 import { ScrollTopDirective }   from './shared/scroll-top.directive';
 
 

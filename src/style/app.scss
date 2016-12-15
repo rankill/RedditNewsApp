@@ -1,8 +1,15 @@
+/**
+
+  Para una futura escalacion de la plataforma se redomienda el uso de la convencion 7-1 para la estructura de carpetas
+  de Sass
+
+*/
+
 // styles in src/style directory are applied to the whole page
 @import "variables";
 
-@import "../style/variables";
 
+// Estandarizacion del comportamirnto visual de los iconos
 [class^="icon-"], [class*=" icon-"] {
   display: inline-block;
   width: 1em;
@@ -12,27 +19,7 @@
   fill: currentColor;
 }
 
-.spinner{
-  animation: anim-rotate 2s infinite linear;
-  &--steps {
-    animation: anim-rotate 1s infinite steps(8);
-  }
-  &--steps2 {
-    animation: anim-rotate 1s infinite steps(12);
-  }
-}
-
-
-@keyframes anim-rotate {
-  0% {
-    transform: rotate(0);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-// Base
+// Base - Configuracion visual basica de la plataforma //
 
 /* WebKit/Blink Browsers */
 ::selection {
@@ -59,7 +46,7 @@ html {
 
 body {
   background: white;
-  color: orangered;
+  color: $reddit-color;
 }
 
 a {
@@ -67,7 +54,7 @@ a {
   text-decoration: none;
 }
 
-// Helpers
+// Helpers - clases  utiles para tareas especificas //
 .u-container {
   max-width: 800px;
   margin: auto;
@@ -92,26 +79,36 @@ $aligns: left center right;
   }
 }
 
-// Animations //
+// Animations - seccion de las animaciones generales de la plataforma//
 .opacity_transition {
   transition: opacity 2s ease;
 }
 
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translate3d(0, -100%, 0);
+.spinner{
+  animation: anim-rotate 2s infinite linear;
+  &--steps {
+    animation: anim-rotate 1s infinite steps(8);
   }
-
-  to {
-    opacity: 1;
-    transform: none;
+  &--steps2 {
+    animation: anim-rotate 1s infinite steps(12);
   }
 }
 
-// Components //
 
-// button element
+@keyframes anim-rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+// Components - Se configura los componentes generales de la plataforma//
+
+// button component
 .c-btn{
   background-color: #d3d3d3;
   border: none;

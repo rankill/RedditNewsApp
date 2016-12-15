@@ -7,7 +7,7 @@ describe('Api Service', () => {
     TestBed.configureTestingModule({providers: [ApiService]});
   });
 
-  it('should ...', inject([ApiService], (api) => {
-    expect(api.title).toBe('Angular 2');
+  it('should the base url - reddit', inject([ApiService], (api) => {
+    expect(api._baseUrl).toBe('https://www.reddit.com');
   }));
 });

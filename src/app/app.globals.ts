@@ -1,3 +1,7 @@
+/**
+ * Will manage the general variables used throughout the plataform
+ */
+
 // angular core
 import { Injectable } from '@angular/core';
 
@@ -8,5 +12,5 @@ import { Injectable } from '@angular/core';
 Injectable();
 export class Globals {
   BASE_SVG_URL: string = 'svg/icomoon/symbol-defs.svg';
-  //... more oglobal variables
+  // ... more oglobal variables
 };

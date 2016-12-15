@@ -6,19 +6,20 @@ import { Globals  } from './app.globals';
 
 import '../style/app.scss';
 
-
+/**
+ * Main Plataform components
+ */
 @Component({
-  selector: 'reddit-app',
-  templateUrl:'./app.component.html',
-  styles:[require('animate.css')],
+  selector: 'my-reddit-app',
+  templateUrl: './app.component.html',
+  styles: [require('animate.css')],
   styleUrls: ['./app.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 
 
-export class AppComponent{
+export class AppComponent {
 
-  constructor( private globals: Globals ){}
+  constructor( private globals: Globals ) {}
 
-  title = 'Reddit News';
 }

@@ -1,6 +1,7 @@
 <div *ngIf="!selectedPost"
      class='u-container posts animated'
      [ngClass]="{fadeIn: !selectedPost, fadeOut: selectedPost}"
+
      infinite-scroll
      [infiniteScrollDisabled]="loading"
      [infiniteScrollThrottle]="500"
@@ -9,8 +10,9 @@
      [scrollWindow]="true">
 
 
+  <!-- MAIN TITLE  -->
   <h2  class="u-text_center posts__title">
-    <svg (click)="reloadPosts()" class="u-text_center icon icon-loop">
+    <svg (click)="refreshPosts()" class="u-text_center icon icon-loop">
       <use [attr.xlink:href]="globals.BASE_SVG_URL+'#icon-loop'"></use>
     </svg>
     Home
@@ -21,6 +23,8 @@
     Listed {{ posts.length }} posts
   </code>
 
+
+  <!--LIST OF LATEST POSTS-->
   <ul *ngIf="posts" class="posts__list">
     <li class="posts__list__item"
         *ngFor="let post of posts;trackBy:post?.id"
@@ -49,7 +53,7 @@
     </li>
   </ul>
 
-  <!-- Template control sections -->
+  <!-- Template information sections -->
   <span *ngIf="loading" class="u-center_block">
     {{ loadingMsg }}
     <svg class="u-text_center icon icon-spinner spinner spinner--steps2">
@@ -62,9 +66,9 @@
   </code>
 </div>
 
-<!--  Show details on selected post -->
-<app-reddit-post-details *ngIf="selectedPost"
+<!--  Show details on selected post clling the myRedditPostDetails component when a selectedPost exits -->
+<my-reddit-post-details *ngIf="selectedPost"
                          (onRemoveSelected)="cleanPostSelected($event)"
                          [currentPost]="selectedPost">
 
-</app-reddit-post-details>
+</my-reddit-post-details>

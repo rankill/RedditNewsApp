@@ -1,29 +1,27 @@
-import { Directive, ElementRef, HostListener, OnInit,Input } from '@angular/core';
+import { Directive, ElementRef, HostListener, OnInit, Input } from '@angular/core';
 
 // external lib to animate scroll top effect - https://stanko.github.io/animated-scroll-to/
 import animateScrollTo from 'animated-scroll-to';
 
 
 @Directive({
-  selector: '[scrollTop]'
+  selector: '[myScrollTop]'
 })
 
 
-export class ScrollTopDirective implements  OnInit{
+export class ScrollTopDirective implements  OnInit {
   private _defaultLimit = 150;
 
   constructor( private element: ElementRef ) { }
 
-  ngOnInit() :void {
+  ngOnInit(): void {
     this._toggleElemenet(false);
   }
-
+  @Input('scrollTop') showLimit: number;
 
   @Input() set defaultLimit(_limit: number){
     this._defaultLimit = _limit || this._defaultLimit;
   }
-
-  @Input('scrollTop') showLimit: number;
 
   @HostListener('click')
   onClick() {
@@ -37,7 +35,7 @@ export class ScrollTopDirective implements  OnInit{
       cancelOnUserAction: false
     };
 
-    animateScrollTo(0, options)
+    animateScrollTo(0, options);
   }
 
 
@@ -46,19 +44,19 @@ export class ScrollTopDirective implements  OnInit{
     let currentScrollTop = document.body.scrollTop;
     let currentLimit = this.showLimit || this._defaultLimit;
 
-    if(currentScrollTop > currentLimit) {
+    if (currentScrollTop > currentLimit) {
       this._toggleElemenet(true);
-    }else{
+    }else {
       this._toggleElemenet(false);
     }
   }
 
 
-  private _toggleElemenet(_show:boolean = false):void {
-    if(_show){
+  private _toggleElemenet(_show = false): void {
+    if (_show) {
       this.element.nativeElement.style.opacity = '1';
       this.element.nativeElement.style.pointerEvents = '';
-    }else{
+    }else {
       this.element.nativeElement.style.opacity = '0';
       this.element.nativeElement.style.pointerEvents = 'none';
     }

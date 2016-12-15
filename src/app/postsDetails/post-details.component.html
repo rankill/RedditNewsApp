@@ -1,12 +1,15 @@
 <div class='u-container post_details animated'
      *ngIf="currentPost"
      [ngClass]="{slideInDown: currentPost, slideOutUp: hideDetails}">
+
+  <!-- TITLE -->
   <h2 class="u-text_center post_details__title">
     Details
   </h2>
 
   <hr>
 
+  <!-- DETAILS VIEW -->
   <section class="post_details__elements">
     <div class="post_details__elements__title">
       <p class="u-text_center">{{ currentPost.title }}</p>
@@ -90,6 +93,7 @@
   </section>
 
 
+  <!-- BACK TO POSTS LIST BUTTON  -->
   <button class="c-btn c-btn--brand c-btn--md" (click)="goBack()">Back</button>
 </div>
 

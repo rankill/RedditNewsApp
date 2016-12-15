@@ -1,9 +1,8 @@
 <header>
   <div class="header u-container">
-    {{title}}
-    <!-- Images (and assets) are parsed and loaded from within the public directory
-      https://www.reddit.com/
-    -->
+    <span>Reddit News</span>
+
+    <!-- Images (and assets) are parsed and loaded from within the public directory-->
     <a target="_blank" href="https://www.reddit.com/">
       <img class="header__logo" src="/img/reddit-icon-background.png" />
     </a>
@@ -12,7 +11,7 @@
 <main>
   <router-outlet></router-outlet>
 
-  <svg  class="c-btn c-btn--brand opacity_transition icon icon-circle-up" id="scroll_top_btn" [scrollTop]="130">
+  <svg  class="c-btn c-btn--brand opacity_transition icon icon-circle-up" id="scroll_top_btn" [myScrollTop]="130">
     <use [attr.xlink:href]="globals.BASE_SVG_URL+'#icon-circle-up'"></use>
   </svg>
 </main>

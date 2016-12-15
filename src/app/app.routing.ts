@@ -4,12 +4,13 @@ import { RouterModule, Routes }  from '@angular/router';
 
 // local components
 import { PostsComponent }        from './posts/posts.component';
-import { PostDetailComponent }   from './postsDetails/post-details.component';
 
+
+// General page routes
 const routes: Routes = [
-  { path: '', redirectTo: '/last_posts', pathMatch: 'full' },
-  { path: 'last_posts',  component: PostsComponent, data:{subTitle:'Home'} },
-  { path: 'detail/:id',  component: PostDetailComponent, data:{subTitle:'Post details'} }
+  // Main route
+  { path: 'last_posts',  component: PostsComponent},
+  { path: '', redirectTo: '/last_posts', pathMatch: 'full' }
 ];
 
 @NgModule({
