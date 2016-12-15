@@ -1,7 +1,8 @@
-<div *ngIf="currentPost"
-     class='u-container post_details'>
+<div class='u-container post_details animated'
+     *ngIf="currentPost"
+     [ngClass]="{slideInDown: currentPost, slideOutUp: hideDetails}">
   <h2 class="u-text_center post_details__title">
-    {{ title }}
+    Details
   </h2>
 
   <hr>

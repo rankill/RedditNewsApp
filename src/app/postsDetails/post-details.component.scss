@@ -1,9 +1,13 @@
 @import '../../style/variables';
 
+:host {}
+
 .post_details {
   padding: 0 10px;
   display: flex;
   flex-direction: column;
+
+  background-color: white;
 
   &__title {
     margin-bottom: 15px;

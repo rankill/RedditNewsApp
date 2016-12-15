@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+
+// Component - Only for the template
+import { PostDetailComponent } from '../postsDetails/post-details.component';
 
 // Services
 import { ApiService  } from './../shared/api.service';
@@ -13,14 +16,15 @@ import { Globals  } from './../app.globals';
 })
 
 export class PostsComponent implements OnInit {
-  title: string= `Home`;
   posts: Array[] = [];
+  selectedPost: Object;
 
   // Control vars
   loading: boolean = false;
   loadingMsg: string = 'Loading posts';
   errorPosts: boolean = false;
-  isOpenBox: boolean = false;
+
+
 
   constructor( private api: ApiService, private globals: Globals ) { }
 
@@ -61,14 +65,24 @@ export class PostsComponent implements OnInit {
   openDetailsBox(_post = null, _state = false):void {
     if(!_post) return;
 
-    console.warn('Debo abrir el box de details?', _post, _state );
-
-     //noinspection TypeScriptUnresolvedVariable
+    //noinspection TypeScriptUnresolvedVariable
     this.posts.map(_currentPost => _currentPost.showDetailBtn = false);
-
 
     if (_state){
       _post.showDetailBtn = true;
     }
   }
+
+
+  // Details binding
+  getPostDetails(_post: Object): void {
+    console.warn('Get details', _post);
+    this.selectedPost = _post;
+  }
+
+  cleanPostSelected($event) {
+    console.log($event);
+    this.selectedPost = null;
+  }
+
 }

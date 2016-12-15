@@ -1,4 +1,6 @@
-<div class='u-container posts'
+<div *ngIf="!selectedPost"
+     class='u-container posts animated'
+     [ngClass]="{fadeIn: !selectedPost, fadeOut: selectedPost}"
      infinite-scroll
      [infiniteScrollDisabled]="loading"
      [infiniteScrollThrottle]="500"
@@ -11,7 +13,7 @@
     <svg (click)="reloadPosts()" class="u-text_center icon icon-loop">
       <use [attr.xlink:href]="globals.BASE_SVG_URL+'#icon-loop'"></use>
     </svg>
-    {{title }}
+    Home
   </h2>
 
   <code class="u-text_right posts__badge"
@@ -41,22 +43,17 @@
         </p>
       </div>
 
-      <div class="posts__list__item__detail">
-        <a class="posts__list__item__detail_link"
-           [routerLink]="['/detail', post.id]">
-          Details
-        </a>
+      <div (click)="getPostDetails(post)" class="posts__list__item__detail">
+        <span class="posts__list__item__detail__action" >Details</span>
       </div>
     </li>
-
   </ul>
 
-
+  <!-- Template control sections -->
   <span *ngIf="loading" class="u-center_block">
     {{ loadingMsg }}
     <svg class="u-text_center icon icon-spinner spinner spinner--steps2">
       <use [attr.xlink:href]="globals.BASE_SVG_URL+'#icon-spinner'"></use>
-
     </svg>
   </span>
 
@@ -64,3 +61,10 @@
     Error getting latest reddit posts, try it again later please :)
   </code>
 </div>
+
+<!--  Show details on selected post -->
+<app-reddit-post-details *ngIf="selectedPost"
+                         (onRemoveSelected)="cleanPostSelected($event)"
+                         [currentPost]="selectedPost">
+
+</app-reddit-post-details>

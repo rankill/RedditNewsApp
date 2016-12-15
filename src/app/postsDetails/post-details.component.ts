@@ -1,7 +1,7 @@
 // Angular core
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params }   from '@angular/router';
-import { Location }                 from '@angular/common';
+import { Component, OnInit, Input, Output, EventEmitter}  from '@angular/core';
+import { ActivatedRoute, Params }                         from '@angular/router';
+import { Location }                                       from '@angular/common';
 
 // Services
 import { ApiService } from './../shared/api.service';
@@ -15,12 +15,15 @@ import 'rxjs/add/operator/switchMap';
 @Component({
   selector: 'app-reddit-post-details',
   templateUrl: './post-details.component.html',
-  styleUrls: ['./post-details.component.scss']
+  styleUrls: ['./post-details.component.scss'],
 })
 
 export class PostDetailComponent implements OnInit {
-  title: string = 'Details';
   currentPost: Array;
+  hideDetails: boolean = false;
+
+  @Input()
+  currentPost: Object;
 
   constructor(
     private api: ApiService,
@@ -29,16 +32,26 @@ export class PostDetailComponent implements OnInit {
     private globals: Globals
   ) {}
 
+
   ngOnInit(): void {
-    this.route.params
-      .switchMap((_params: Params) => this.api.getPostDetails(_params['id']))
-      .subscribe(_post => {
-        console.warn('Post', _post)
-        this.currentPost = _post;
-      });
+    // this.route.params
+    //   .switchMap((_params: Params) => this.api.getPostDetails(_params['id']))
+    //   .subscribe(_post => {
+    //     console.warn('Post', _post)
+    //     this.currentPost = _post;
+    //   });
+
+    this.hideDetails = false;
   }
 
-  goBack(): void {
-    this.location.back();
+
+  @Output() onRemoveSelected = new EventEmitter();
+  goBack() {
+    this.hideDetails = true;
+
+    setTimeout(() => {
+      this.currentPost = null;
+      this.onRemoveSelected.emit()
+    }, 1000)
   }
 }

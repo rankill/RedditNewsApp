@@ -1,5 +1,5 @@
 // Angular core
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 
 // Globals
 import { Globals  } from './app.globals';
@@ -10,7 +10,9 @@ import '../style/app.scss';
 @Component({
   selector: 'reddit-app',
   templateUrl:'./app.component.html',
-  styleUrls: ['./app.component.scss']
+  styles:[require('animate.css')],
+  styleUrls: ['./app.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 
 

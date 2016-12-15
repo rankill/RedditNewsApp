@@ -42,4 +42,5 @@ import { ScrollTopDirective }   from './shared/scroll-top.directive';
   providers: [ApiService, Globals],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
