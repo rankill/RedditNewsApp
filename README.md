@@ -19,6 +19,11 @@
 
 * Get the details of a post selected by the user
 
+##<i class="icon-book"></i>Requirements
+What you need to run this app:
+>* `node` and `npm` (Use [NVM](https://github.com/creationix/nvm))
+* Ensure you're running Node (`v5.x.x`+) and NPM (`3.x.x`+)
+
 
 ## <i class="icon-upload"></i> Deploy app
 
@@ -38,7 +43,7 @@ $ npm start
 go to [http://localhost:8000](http://localhost:8000) in your browser..
 
 
-##<i class="icon-folder-open"></i>Versions
+##<i class="icon-folder"></i>Versions
 
 There are two versions of the Reddit news App, the main version is in the master branch, so it is the default version that you get when execute git clone or downoald by zip
 
@@ -51,14 +56,10 @@ $ git checkout develop
 
 And then run the 'deploy app' steps, except the git clone step
 
-##<i class="icon-book"></i>Requirements
-What you need to run this app:
->* `node` and `npm` (Use [NVM](https://github.com/creationix/nvm))
-* Ensure you're running Node (`v5.x.x`+) and NPM (`3.x.x`+)
+##<i class="icon-folder-open"></i>Future growth
 
-
-
-
+ 1. Use of the 7-1 architecture pattern
+ 2. Build the production app with the help of webpack and the use strict rule
 
 ## <i class="icon-hdd"></i> Running unit tests
 
