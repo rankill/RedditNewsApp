@@ -41,7 +41,7 @@ export class ScrollTopDirective implements  OnInit {
 
   @HostListener('window:scroll', ['$event'])
   onScroll(_event) {
-    let currentScrollTop = document.body.scrollTop;
+    let currentScrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
     let currentLimit = this.showLimit || this._defaultLimit;
 
     if (currentScrollTop > currentLimit) {
