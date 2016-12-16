@@ -6,10 +6,10 @@
 Responsive and mobile friendly **App** that request the latest posts of Reddit using Angular 2 -
 
 This app was generated with  [angular2-webpack-starter](https://angularclass.github.io/angular2-webpack-starter/)
- -----
+
 [![](http://www.brentcsutoras.com/wp-content/uploads/2009/01/alienflap.gif)](https://www.reddit.com/)  [![](https://johnpapa.gallerycdn.vsassets.io/extensions/johnpapa/angular2/1.0.2/1475237564342/Microsoft.VisualStudio.Services.Icons.Default)](https://angular.io/)[<img src="https://s3.amazonaws.com/media-p.slid.es/uploads/193062/images/1934626/webpack.png" data-canonical-src="https://s3.amazonaws.com/media-p.slid.es/uploads/193062/images/1934626/webpack.png" width="160" />](https://webpack.github.io/)
 
--------
+----------
 
 ## <i class="icon-user"></i> Author
 > Luis Aberto Saraza Gutiérrez - @RanKill
@@ -21,10 +21,12 @@ This app was generated with  [angular2-webpack-starter](https://angularclass.git
 
 * Get the details of a post selected by the user
 
-##<i class="icon-book"></i>Requirements
+## <i class="icon-book"></i>Requirements
 What you need to run this app:
->* `node` and `npm` (Use [NVM](https://github.com/creationix/nvm))
-* Ensure you're running Node (`v5.x.x`+) and NPM (`3.x.x`+)
+
+  * `node` and `npm` (Use [NVM](https://github.com/creationix/nvm))
+
+  * Ensure you're running Node (`v5.x.x`+) and NPM (`3.x.x`+)
 
 
 ## <i class="icon-upload"></i> Deploy app
@@ -45,7 +47,7 @@ $ npm start
 go to [http://localhost:8000](http://localhost:8000) in your browser..
 
 
-##<i class="icon-folder"></i>Versions
+## <i class="icon-folder"></i>Versions
 
 There are two versions of the Reddit news App, the main version is in the master branch, so it is the default version that you get when execute git clone or downoald by zip
 
@@ -58,7 +60,7 @@ $ git checkout RouteVersion
 
 And then run the 'deploy app' steps, except the git clone step
 
-##<i class="icon-folder-open"></i>Future growth
+## <i class="icon-folder-open"></i>Future growth
 
  1. Use of the 7-1 architecture pattern
  [(https://github.com/HugoGiraudel/sass-boilerplate)](https://github.com/HugoGiraudel/sass-boilerplate)
