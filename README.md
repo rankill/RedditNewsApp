@@ -3,7 +3,7 @@
 
 [![Dependency Status](https://david-dm.org/rankill/RedditNewsApp/status.svg)](https://david-dm.org/rankill/RedditNewsApp#info=dependencies)  [![devDependency Status](https://david-dm.org/rankill/RedditNewsApp/dev-status.svg)](https://david-dm.org/rankill/RedditNewsApp#info=devDependencies)
 
-Responsive and mobile friendly **App** that request the latest posts of Reddit using Angular 2 -
+Responsive and mobile friendly **App** that request the latest posts of Reddit using Angular 2
 
 This app was generated with  [angular2-webpack-starter](https://angularclass.github.io/angular2-webpack-starter/)
 
