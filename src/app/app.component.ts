@@ -7,7 +7,7 @@ import { Globals  } from './app.globals';
 import '../style/app.scss';
 
 /**
- * Main Plataform components
+ * Main Platform components
  */
 @Component({
   selector: 'my-reddit-app',
