@@ -58,7 +58,7 @@ And then run the 'deploy app' steps, except the git clone step
 
 ##<i class="icon-folder-open"></i>Future growth
 
- 1. Use of the 7-1 architecture pattern
+ 1. Use of the 7-1 architecture pattern (https://github.com/HugoGiraudel/sass-boilerplate)
  2. Build the production app with the help of webpack and the use strict rule
 
 ## <i class="icon-hdd"></i> Running unit tests
