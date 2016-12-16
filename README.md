@@ -1,7 +1,7 @@
 
 # **Reddit News**  ![Reddit logo](http://www.uidownload.com/files/399/442/364/logo-reddit-social-social-media-icon.png)
 
-[![Dependency Status](https://david-dm.org/rankill/RedditPosts/status.svg)](https://david-dm.org/rankill/RedditPosts#info=dependencies)  [![devDependency Status](https://david-dm.org/rankill/RedditPosts/dev-status.svg)](https://david-dm.org/rankill/RedditPosts#info=devDependencies)
+[![Dependency Status](https://david-dm.org/rankill/RedditNewsApp/status.svg)](https://david-dm.org/rankill/RedditNewsApp#info=dependencies)  [![devDependency Status](https://david-dm.org/rankill/RedditNewsApp/dev-status.svg)](https://david-dm.org/rankill/RedditNewsApp#info=devDependencies)
 
  App thath obtains the latest posts of Reddit using Angular 2
  -----
@@ -24,10 +24,10 @@
 
 ```bash
 # clone the repo
-$ git clone https://github.com/rankill/RedditPosts.git
+$ git clone https://github.com/rankill/RedditNewsApp.git
 
 # change directory to your app
-$ cd RedditPosts
+$ cd RedditNewsApp
 
 # install the dependencies with npm
 $ npm install
