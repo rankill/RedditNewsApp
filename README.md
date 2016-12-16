@@ -19,7 +19,7 @@ Responsive and mobile friendly **App** that request the latest posts of Reddit u
 
 * Get the details of a post selected by the user
 
-##<i class="icon-book"></i>Requirements
+## <i class="icon-book"></i>Requirements
 What you need to run this app:
 >* `node` and `npm` (Use [NVM](https://github.com/creationix/nvm))
 * Ensure you're running Node (`v5.x.x`+) and NPM (`3.x.x`+)
