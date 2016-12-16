@@ -1,5 +1,5 @@
 {
-  "name": "RedditNewsApp",
+  "name": "RedditPosts",
   "version": "1.0.0",
   "scripts": {
     "clean": "rimraf node_modules doc dist && npm cache clean",

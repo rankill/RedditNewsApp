@@ -13,4 +13,4 @@ Injectable();
 export class Globals {
   BASE_SVG_URL: string = 'svg/icomoon/symbol-defs.svg';
   // ... more oglobal variables
-};
+}

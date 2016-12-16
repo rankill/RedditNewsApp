@@ -23,7 +23,7 @@
 ## <i class="icon-upload"></i> Deploy app
 
 ```bash
-# clone the repo
+# clone the repo or download as zip
 $ git clone https://github.com/rankill/RedditNewsApp.git
 
 # change directory to your app
@@ -35,7 +35,7 @@ $ npm install
 # start the server
 $ npm start
 ```
-go to [http://localhost:8080](http://localhost:8080) in your browser..
+go to [http://localhost:8000](http://localhost:8000) in your browser..
 
 
 ##<i class="icon-folder-open"></i>Versions
