@@ -3,9 +3,11 @@
 
 [![Dependency Status](https://david-dm.org/rankill/RedditNewsApp/status.svg)](https://david-dm.org/rankill/RedditNewsApp#info=dependencies)  [![devDependency Status](https://david-dm.org/rankill/RedditNewsApp/dev-status.svg)](https://david-dm.org/rankill/RedditNewsApp#info=devDependencies)
 
-Responsive and mobile friendly **App** that request the latest posts of Reddit using Angular 2
+Responsive and mobile friendly **App** that request the latest posts of Reddit using Angular 2 -
+
+This app was generated with  https://angularclass.github.io/angular2-webpack-starter/
  -----
-[![](http://www.brentcsutoras.com/wp-content/uploads/2009/01/alienflap.gif)](https://www.reddit.com/)  [![](https://johnpapa.gallerycdn.vsassets.io/extensions/johnpapa/angular2/1.0.2/1475237564342/Microsoft.VisualStudio.Services.Icons.Default)](https://angular.io/)
+[![](http://www.brentcsutoras.com/wp-content/uploads/2009/01/alienflap.gif)](https://www.reddit.com/)[![](https://johnpapa.gallerycdn.vsassets.io/extensions/johnpapa/angular2/1.0.2/1475237564342/Microsoft.VisualStudio.Services.Icons.Default)](https://angular.io/)[<img src="https://s3.amazonaws.com/media-p.slid.es/uploads/193062/images/1934626/webpack.png" data-canonical-src="https://s3.amazonaws.com/media-p.slid.es/uploads/193062/images/1934626/webpack.png" width="160" />](https://webpack.github.io/)
 
 -------
 
@@ -61,6 +63,7 @@ And then run the 'deploy app' steps, except the git clone step
 ## <i class="icon-folder-open"></i>Future growth
 
  1. Use of the 7-1 architecture pattern (https://github.com/HugoGiraudel/sass-boilerplate)
+
  2. Build the production app with the help of webpack and the use strict rule
 
 ## <i class="icon-hdd"></i> Running unit tests
