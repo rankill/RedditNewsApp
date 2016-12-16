@@ -31,7 +31,7 @@ What you need to run this app:
 # clone the repo or download as zip
 $ git clone https://github.com/rankill/RedditNewsApp.git
 
-# change directory to your app
+# change directory to the app
 $ cd RedditNewsApp
 
 # install the dependencies with npm
