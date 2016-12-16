@@ -15,7 +15,7 @@ export class ScrollTopDirective implements  OnInit {
   constructor( private element: ElementRef ) { }
 
   ngOnInit(): void {
-    this._toggleElemenet(false);
+    this._toggleElementVisibility(false);
   }
   @Input('scrollTop') showLimit: number;
 
@@ -28,7 +28,7 @@ export class ScrollTopDirective implements  OnInit {
     // default options
     const options = {
       // duration of the scroll per 1000px, default 500
-      speed: 500,
+      speed: 300,
       // maximum duration of the scroll
       maxDuration: 1000,
       // should animated scroll be canceled on user scroll/keypress
@@ -45,14 +45,14 @@ export class ScrollTopDirective implements  OnInit {
     let currentLimit = this.showLimit || this._defaultLimit;
 
     if (currentScrollTop > currentLimit) {
-      this._toggleElemenet(true);
+      this._toggleElementVisibility(true);
     }else {
-      this._toggleElemenet(false);
+      this._toggleElementVisibility(false);
     }
   }
 
 
-  private _toggleElemenet(_show = false): void {
+  private _toggleElementVisibility(_show = false): void {
     if (_show) {
       this.element.nativeElement.style.opacity = '1';
       this.element.nativeElement.style.pointerEvents = '';

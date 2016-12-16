@@ -8,7 +8,9 @@ import { HttpModule }           from '@angular/http';
 import { AppRoutingModule }     from './app.routing';
 
 // External modules
-import { InfiniteScrollModule } from 'angular2-infinite-scroll';
+import { InfiniteScrollModule }                   from 'angular2-infinite-scroll';
+import {Ng2PageScrollModule, PageScrollConfig}    from 'ng2-page-scroll'; // Library to scroll to specific id element
+
 
 // Local components
 import { AppComponent }         from './app.component';
@@ -38,10 +40,16 @@ import { ScrollTopDirective }   from './shared/scroll-top.directive';
     FormsModule,
     HttpModule,
     AppRoutingModule,
-    InfiniteScrollModule
+    InfiniteScrollModule,
+    Ng2PageScrollModule.forRoot()
   ],
   providers: [ApiService, Globals],
   bootstrap: [AppComponent]
 })
 
-export class AppModule { }
+export class AppModule {
+
+  constructor() {
+    PageScrollConfig.defaultDuration = 300;
+  }
+}

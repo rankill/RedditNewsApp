@@ -4,13 +4,13 @@ import { Component, OnInit} from '@angular/core';
 import { PostDetailComponent } from '../postsDetails/post-details.component';
 
 // Services
-import { ApiService  } from './../shared/api.service';
+import { ApiService } from './../shared/api.service';
 
 // Globals
-import { Globals  } from './../app.globals';
+import { Globals  }   from './../app.globals';
 
 // External
-import animateScrollTo from 'animated-scroll-to';
+import { PageScrollService, PageScrollInstance, PageScrollConfig } from 'ng2-page-scroll';
 
 @Component({
   selector: 'my-reddit-posts',
@@ -29,11 +29,19 @@ export class PostsComponent implements OnInit {
 
 
 
-  constructor( private api: ApiService, private globals: Globals ) { }
+  constructor(
+    private api: ApiService,
+    private globals: Globals ,
+    private pageScrollService: PageScrollService,
+  ) {
+    // Offset of the scroll because the height of the fixed header
+    PageScrollConfig.defaultScrollOffset = 60;
+  }
 
   ngOnInit(): void {
     this.getPostsList();
   }
+
 
   /**
    * Function to get list of latest reddit posts from the main API
@@ -57,7 +65,6 @@ export class PostsComponent implements OnInit {
    * @param _post - The current post selected
    */
   getPostDetails(_post: Object): void {
-    console.warn('Get details', _post);
     this.selectedPost = _post;
   }
 
@@ -108,9 +115,20 @@ export class PostsComponent implements OnInit {
    * @param $event
    */
   cleanPostSelected($event) {
-    console.warn('Clean', 'post_'+this.selectedPost.id, document.getElementById('post_'+this.selectedPost.id));
-    document.getElementById('post_'+this.selectedPost.id).scrollIntoView();
-    this.selectedPost = null;
-  }
+    // Keep the temp id to execute the scroll
+    let _tempSelectedPostId =  this.selectedPost.id;
 
+    // Clean the selected post
+    this.selectedPost = null;
+
+    // Timeout while the view render the elements again
+    setTimeout( () => {
+      // Get the scroll instance, with the current DOM id
+      let pageScrollInstance: PageScrollInstance = PageScrollInstance
+        .simpleInstance(document, '#post_' + _tempSelectedPostId);
+
+      // Execute the scroll to the current instance
+      this.pageScrollService.start(pageScrollInstance);
+    }, 0);
+  }
 }
