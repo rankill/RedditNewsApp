@@ -45,7 +45,7 @@ $ npm start
 go to [http://localhost:8000](http://localhost:8000) in your browser..
 
 
-##<i class="icon-folder"></i>Versions
+## <i class="icon-folder"></i>Versions
 
 There are two versions of the Reddit news App, the main version is in the master branch, so it is the default version that you get when execute git clone or downoald by zip
 
