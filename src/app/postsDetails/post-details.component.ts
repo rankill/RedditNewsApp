@@ -33,7 +33,6 @@ export class PostDetailComponent implements OnInit {
     this.route.params
       .switchMap((_params: Params) => this.api.getPostDetails(_params['id']))
       .subscribe(_post => {
-        console.warn('Post', _post)
         this.currentPost = _post;
       });
   }

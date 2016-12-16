@@ -25,7 +25,6 @@ export class ApiService {
   getLatestPosts(_shouldRefresh: boolean = false): Promise<Array[]> {
 
     if(_shouldRefresh) {
-      console.debug("Tengo q recargar");
       this._after = '';
       this.loadedPosts = [];
     }

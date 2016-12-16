@@ -25,26 +25,21 @@ export class PostsComponent implements OnInit {
   constructor( private api: ApiService, private globals: Globals ) { }
 
   ngOnInit(): void {
-    console.warn('Inicio');
     this.getPostsList();
   }
 
 
   getPostsList(_refresh:boolean = false) : void {
-    console.debug('Get posts');
-
     this.loading = true;
 
     this.api.getLatestPosts(_refresh)
       .then(_posts => {
-        console.warn('Posts', _posts);
         this.loading = false;
         this.posts = _posts;
       }, error => this.errorPosts = true);
   }
 
   onScrollBottom(): void  {
-    console.log('scrolled!!')
     this.loadingMsg = 'Loading more posts';
     this.getPostsList();
   }
@@ -60,8 +55,6 @@ export class PostsComponent implements OnInit {
 
   openDetailsBox(_post = null, _state = false):void {
     if(!_post) return;
-
-    console.warn('Debo abrir el box de details?', _post, _state );
 
      //noinspection TypeScriptUnresolvedVariable
     this.posts.map(_currentPost => _currentPost.showDetailBtn = false);
