@@ -21,7 +21,9 @@ Responsive and mobile friendly **App** that request the latest posts of Reddit u
 
 ## <i class="icon-book"></i>Requirements
 What you need to run this app:
->* `node` and `npm` (Use [NVM](https://github.com/creationix/nvm))
+
+* `node` and `npm` (Use [NVM](https://github.com/creationix/nvm))
+
 * Ensure you're running Node (`v5.x.x`+) and NPM (`3.x.x`+)
 
 
@@ -56,7 +58,7 @@ $ git checkout RouteVersion
 
 And then run the 'deploy app' steps, except the git clone step
 
-##<i class="icon-folder-open"></i>Future growth
+## <i class="icon-folder-open"></i>Future growth
 
  1. Use of the 7-1 architecture pattern (https://github.com/HugoGiraudel/sass-boilerplate)
  2. Build the production app with the help of webpack and the use strict rule
