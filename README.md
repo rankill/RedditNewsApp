@@ -47,11 +47,11 @@ go to [http://localhost:8000](http://localhost:8000) in your browser..
 
 There are two versions of the Reddit news App, the main version is in the master branch, so it is the default version that you get when execute git clone or downoald by zip
 
-The second version, is in the branch develop, the main diference is the use of the route service from angular 2 to get the details of an specific post, but it doesn’t have all the visual and functional characteristics of the master branch, however, to check the route version, just run:
+The second version, is in the branch RouteVersion, the main diference is the use of the route service from angular 2 to get the details of an specific post, but it doesn’t have all the visual and functional characteristics of the master branch, however, to check the route version, just run:
 
 ```bash
-# checkout the develop version
-$ git checkout develop
+# checkout the RouteVersion version
+$ git checkout RouteVersion
 ```
 
 And then run the 'deploy app' steps, except the git clone step
