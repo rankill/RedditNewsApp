@@ -1,5 +1,5 @@
 
-# **Reddit News** --  ![Reddit logo](http://www.uidownload.com/files/399/442/364/logo-reddit-social-social-media-icon.png)
+# **Reddit News**  ![Reddit logo](http://www.uidownload.com/files/399/442/364/logo-reddit-social-social-media-icon.png)
 
 [![Dependency Status](https://david-dm.org/rankill/RedditPosts/status.svg)](https://david-dm.org/rankill/RedditPosts#info=dependencies)  [![devDependency Status](https://david-dm.org/rankill/RedditPosts/dev-status.svg)](https://david-dm.org/rankill/RedditPosts#info=devDependencies)
 
