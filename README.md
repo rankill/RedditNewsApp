@@ -26,7 +26,7 @@ What you need to run this app:
 
   * `node` and `npm` (Use [NVM](https://github.com/creationix/nvm))
 
-  * Ensure you're running Node (`v5.x.x`+) and NPM (`3.x.x`+)
+  * Ensure you're running Node (`v5.x.x`) and NPM (`3.x.x`)
 
 
 ## <i class="icon-upload"></i> Deploy app
