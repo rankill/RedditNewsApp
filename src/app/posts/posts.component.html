@@ -13,7 +13,7 @@
   <!-- MAIN TITLE  -->
   <h2  class="u-text_center posts__title">
     <svg (click)="refreshPosts()" class="u-text_center icon icon-loop">
-      <use [attr.xlink:href]="globals.BASE_SVG_URL+'#icon-loop'"></use>
+      <use [attr.xlink:href]="svgBaseUrl+'#icon-loop'"></use>
     </svg>
     Home
   </h2>
@@ -58,7 +58,7 @@
   <span *ngIf="loading" class="u-center_block">
     {{ loadingMsg }}
     <svg class="u-text_center icon icon-spinner spinner spinner--steps2">
-      <use [attr.xlink:href]="globals.BASE_SVG_URL+'#icon-spinner'"></use>
+      <use [attr.xlink:href]="svgBaseUrl+'#icon-spinner'"></use>
     </svg>
   </span>
 

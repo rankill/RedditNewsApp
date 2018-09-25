@@ -17,28 +17,28 @@
       <div class="u-center_block post_details__elements__title__meta">
         <small class="post_details__elements__title__meta__item">
           <svg class="u-font-main-color icon icon-thumb_up">
-            <use [attr.xlink:href]="globals.BASE_SVG_URL+'#icon-thumb_up'"></use>
+            <use [attr.xlink:href]="svgBaseUrl+'#icon-thumb_up'"></use>
           </svg>
           {{ currentPost.ups }}
         </small>
 
         <small class="post_details__elements__title__meta__item">
           <svg class="u-font-main-color icon icon-thumb_down">
-            <use [attr.xlink:href]="globals.BASE_SVG_URL+'#icon-thumb_down'"></use>
+            <use [attr.xlink:href]="svgBaseUrl+'#icon-thumb_down'"></use>
           </svg>
           {{ currentPost.downs }}
         </small>
 
         <small class="post_details__elements__title__meta__item">
           <svg class="u-font-main-color icon icon-bubbles4">
-            <use [attr.xlink:href]="globals.BASE_SVG_URL+'#icon-bubbles4'"></use>
+            <use [attr.xlink:href]="svgBaseUrl+'#icon-bubbles4'"></use>
           </svg>
           {{ currentPost.num_comments }}
         </small>
 
         <small class="post_details__elements__title__meta__item">
           <svg class="u-font-main-color icon icon-award">
-            <use [attr.xlink:href]="globals.BASE_SVG_URL+'#icon-award'"></use>
+            <use [attr.xlink:href]="svgBaseUrl+'#icon-award'"></use>
           </svg>
           {{ currentPost.score }}
         </small>

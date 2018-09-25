@@ -19,7 +19,10 @@ import '../style/app.scss';
 
 
 export class AppComponent {
+  svgBaseUrl: string;
 
-  constructor( private globals: Globals ) {}
+  constructor( private globalValues: Globals ) {
+    this.svgBaseUrl = globalValues.BASE_SVG_URL;
+  }
 
 }

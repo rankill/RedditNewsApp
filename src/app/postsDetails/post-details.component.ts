@@ -3,6 +3,7 @@ import { Component, OnInit, Input, Output, EventEmitter}  from '@angular/core';
 
 // Switch map -> To make the route of the view
 import 'rxjs/add/operator/switchMap';
+import {Globals} from '../app.globals';
 
 @Component({
   selector: 'my-reddit-post-details',
@@ -13,6 +14,7 @@ import 'rxjs/add/operator/switchMap';
 export class PostDetailComponent implements OnInit {
   // Animation vars
   hideDetails: boolean = false;
+  svgBaseUrl: string;
 
   // Keep the post selected from the list that is passed by the post component
   @Input() currentPost: Object;
@@ -21,7 +23,11 @@ export class PostDetailComponent implements OnInit {
   @Output() onRemoveSelected = new EventEmitter();
 
 
-  constructor() {}
+  constructor(
+    private globalValues: Globals
+  ) {
+    this.svgBaseUrl = globalValues.BASE_SVG_URL;
+  }
 
 
   ngOnInit(): void {

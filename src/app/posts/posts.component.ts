@@ -12,9 +12,6 @@ import {Post} from '../shared/interfaces/Posts';
 // Globals
 import { Globals  }   from './../app.globals';
 
-// External
-import { PageScrollService, PageScrollInstance, PageScrollConfig } from 'ng2-page-scroll';
-
 @Component({
   selector: 'my-reddit-posts',
   templateUrl: './posts.component.html',
@@ -29,16 +26,15 @@ export class PostsComponent implements OnInit {
   loading: boolean = false;
   loadingMsg: string = 'Loading posts';
   errorPosts: boolean = false;
+  svgBaseUrl: string;
 
 
 
   constructor(
     private api: ApiService,
-    private globals: Globals ,
-    private pageScrollService: PageScrollService,
+    private globalValues: Globals
   ) {
-    // Offset of the scroll because the height of the fixed header
-    PageScrollConfig.defaultScrollOffset = 60;
+    this.svgBaseUrl = globalValues.BASE_SVG_URL;
   }
 
   ngOnInit(): void {
@@ -118,20 +114,7 @@ export class PostsComponent implements OnInit {
    * @param $event
    */
   cleanPostSelected($event: any) {
-    // Keep the temp id to execute the scroll
-    let _tempSelectedPostId =  this.selectedPost.id;
-
     // Clean the selected post
     this.selectedPost = null;
-
-    // Timeout while the view render the elements again
-    setTimeout( () => {
-      // Get the scroll instance, with the current DOM id
-      let pageScrollInstance: PageScrollInstance = PageScrollInstance
-        .simpleInstance(document, '#post_' + _tempSelectedPostId);
-
-      // Execute the scroll to the current instance
-      this.pageScrollService.start(pageScrollInstance);
-    }, 0);
   }
 }
