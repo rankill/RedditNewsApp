@@ -6,6 +6,9 @@ import { PostDetailComponent } from '../postsDetails/post-details.component';
 // Services
 import { ApiService } from './../shared/api.service';
 
+// Interfaces
+import {Post} from '../shared/interfaces/Posts';
+
 // Globals
 import { Globals  }   from './../app.globals';
 
@@ -19,8 +22,8 @@ import { PageScrollService, PageScrollInstance, PageScrollConfig } from 'ng2-pag
 })
 
 export class PostsComponent implements OnInit {
-  posts: Array[] = [];
-  selectedPost: Object;
+  posts: Post[] = [];
+  selectedPost: Post;
 
   // Control vars
   loading: boolean = false;
@@ -51,7 +54,7 @@ export class PostsComponent implements OnInit {
     this.loading = true;
 
     this.api.getLatestPosts(_refresh)
-      .then(_posts => {
+      .then((_posts: Post[]) => {
         this.loading = false;
         this.posts = _posts;
       }, error => {
@@ -64,7 +67,7 @@ export class PostsComponent implements OnInit {
    * Function to get the details of the post selected
    * @param _post - The current post selected
    */
-  getPostDetails(_post: Object): void {
+  getPostDetails(_post: Post): void {
     this.selectedPost = _post;
   }
 
@@ -94,14 +97,14 @@ export class PostsComponent implements OnInit {
    * @param _post - Object current post ineracted
    * @param _state - true to open the box, false to close the box
    */
-  openDetailsBox(_post = null, _state = false): void {
-    if (!_post) return;
+  openDetailsBox(_post: any = null, _state = false): void {
+    if (!_post) { return; }
 
     // noinspection TypeScriptUnresolvedVariable
     /**
      * Map the array to close all the details boxes
      */
-    this.posts.map(_currentPost => _currentPost.showDetailBtn = false);
+    this.posts.map((_currentPost: Post) => _currentPost.showDetailBtn = false);
 
 
     // If the state passed is true, shoul open the details box of the current post
@@ -114,7 +117,7 @@ export class PostsComponent implements OnInit {
    * Function that clean the current selected post, it is executed from the post details component by output decorator
    * @param $event
    */
-  cleanPostSelected($event) {
+  cleanPostSelected($event: any) {
     // Keep the temp id to execute the scroll
     let _tempSelectedPostId =  this.selectedPost.id;
 

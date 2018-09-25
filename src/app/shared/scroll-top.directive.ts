@@ -10,17 +10,19 @@ import animateScrollTo from 'animated-scroll-to';
 
 
 export class ScrollTopDirective implements  OnInit {
+  @Input('scrollTop') showLimit: number;
+
+  @Input() set defaultLimit(_limit: number){
+    this._defaultLimit = _limit || this._defaultLimit;
+  }
+
+
   private _defaultLimit = 150;
 
   constructor( private element: ElementRef ) { }
 
   ngOnInit(): void {
     this._toggleElementVisibility(false);
-  }
-  @Input('scrollTop') showLimit: number;
-
-  @Input() set defaultLimit(_limit: number){
-    this._defaultLimit = _limit || this._defaultLimit;
   }
 
   @HostListener('click')
@@ -40,25 +42,17 @@ export class ScrollTopDirective implements  OnInit {
 
 
   @HostListener('window:scroll', ['$event'])
-  onScroll(_event) {
-    let currentScrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-    let currentLimit = this.showLimit || this._defaultLimit;
+  onScroll() {
+    const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    const currentLimit = this.showLimit || this._defaultLimit;
+    const show = currentScrollTop > currentLimit;
 
-    if (currentScrollTop > currentLimit) {
-      this._toggleElementVisibility(true);
-    }else {
-      this._toggleElementVisibility(false);
-    }
+    this._toggleElementVisibility(show);
   }
 
 
   private _toggleElementVisibility(_show = false): void {
-    if (_show) {
-      this.element.nativeElement.style.opacity = '1';
-      this.element.nativeElement.style.pointerEvents = '';
-    }else {
-      this.element.nativeElement.style.opacity = '0';
-      this.element.nativeElement.style.pointerEvents = 'none';
-    }
+    this.element.nativeElement.style.opacity = _show ? '1' : '0';
+    this.element.nativeElement.style.pointerEvents = _show ? '' : 'none';
   }
 }

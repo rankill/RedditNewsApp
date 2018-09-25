@@ -2,13 +2,16 @@
 import { Injectable }    from '@angular/core';
 import { Http } from '@angular/http';
 
+// Interfaces
+import {Post} from './interfaces/Posts';
+
 // RxJS import - to Promise
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class ApiService {
   // Will keep the loaded posts every loop
-  loadedPosts: Array = [];
+  loadedPosts: Array<any> = [];
 
   private _after: string = '';
   private _baseUrl: string = 'https://www.reddit.com';
@@ -32,7 +35,7 @@ export class ApiService {
    * @param _shouldRefresh -  If the plataform need to refresh the list of posts
    * @returns {Promise<Array>}
    */
-  getLatestPosts(_shouldRefresh = false): Promise<Array[]> {
+  getLatestPosts(_shouldRefresh = false): Promise<Post[]> {
 
     if (_shouldRefresh) {
       this._after = '';
@@ -47,7 +50,7 @@ export class ApiService {
       .then(_response => {
         this._after = _response.json().data.after;
         this.loadedPosts = this.loadedPosts
-          .concat(_response.json().data.children.map((_children: any) => _children.data as Array[]));
+          .concat(_response.json().data.children.map((_children: any) => _children.data as Array<any>[]));
         return this.loadedPosts;
       })
       .catch(this.handleError);
